@@ -30,7 +30,7 @@ class App {
     this.server.use(helmet());
     this.server.use(
       cors({
-        origin: process.env.FRONTEND_URL || false,
+        origin: false,
       })
     );
     this.server.use(express.json());
