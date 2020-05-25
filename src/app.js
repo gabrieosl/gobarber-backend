@@ -7,10 +7,10 @@ import redis from 'redis';
 import RateLimit from 'express-rate-limit';
 import RateLimitRedis from 'rate-limit-redis';
 import Youch from 'youch';
-import * as Sentry from '@sentry/node';
-import 'express-async-errors';
+// import * as Sentry from '@sentry/node';
+// import 'express-async-errors';
 import routes from './routes';
-import sentryConfig from './config/sentry';
+// import sentryConfig from './config/sentry';
 
 import './database';
 
@@ -18,7 +18,7 @@ class App {
   constructor() {
     this.server = express();
 
-    Sentry.init(sentryConfig);
+    // Sentry.init(sentryConfig);
 
     this.middlewares();
     this.routes();
@@ -26,7 +26,7 @@ class App {
   }
 
   middlewares() {
-    this.server.use(Sentry.Handlers.requestHandler());
+    // this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(helmet());
     this.server.use(
       cors({
@@ -57,7 +57,7 @@ class App {
 
   routes() {
     this.server.use(routes);
-    this.server.use(Sentry.Handlers.errorHandler());
+    // this.server.use(Sentry.Handlers.errorHandler());
   }
 
   exceptionHandler() {
