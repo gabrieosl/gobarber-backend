@@ -7,6 +7,6 @@ export default {
     pass: process.env.MAIL_PASS,
   },
   default: {
-    from: 'Equipe Gobarber <gobarber@gadev.me>',
+    from: 'Equipe Gobarber <notification@gadev.me>',
   },
 };
