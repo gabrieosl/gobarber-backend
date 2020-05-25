@@ -48,28 +48,28 @@ class AppointmentController {
   async store(req, res) {
     const { provider_id, date } = req.body;
 
-    try {
-      const appointment = await CreateAppointmentService.run({
-        date,
-        provider_id,
-        user_id: req.userId,
-      });
-      return res.json(appointment);
-    } catch (err) {
-      return res.status(400).json({ error: err.message });
-    }
+    // try {
+    const appointment = await CreateAppointmentService.run({
+      date,
+      provider_id,
+      user_id: req.userId,
+    });
+    return res.json(appointment);
+    // } catch (err) {
+    // return res.status(400).json({ error: err.message });
+    // }
   }
 
   async delete(req, res) {
-    try {
-      const appointment = await CancelAppointmentService.run({
-        appointment_id: req.params.id,
-        user_id: req.userId,
-      });
-      return res.json(appointment);
-    } catch (err) {
-      return res.status(400).json({ error: err.message });
-    }
+    // try {
+    const appointment = await CancelAppointmentService.run({
+      appointment_id: req.params.id,
+      user_id: req.userId,
+    });
+    return res.json(appointment);
+    // } catch (err) {
+    // return res.status(400).json({ error: err.message });
+    // }
   }
 }
 
